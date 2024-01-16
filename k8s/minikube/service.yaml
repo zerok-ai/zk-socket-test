@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zk-socket-server
+  labels:
+    app: zk-socket-server
+spec:
+  selector:
+    app: zk-socket-server
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

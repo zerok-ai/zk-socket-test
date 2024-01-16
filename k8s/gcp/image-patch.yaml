@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zk-socket-server
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: gcr-json-key
+      containers:
+        - name: zk-socket-server
+          image: us-west1-docker.pkg.dev/zerok-dev/zk-client/zk-socket-server:latest
+          imagePullPolicy: Always

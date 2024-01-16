@@ -1,0 +1,13 @@
+logs:
+  color: true
+  level: DEBUG
+app:
+  startServerOnBoot: true
+  runTestClientOnBoot: true
+server:
+  sendAck: false
+  port: 6473
+client:
+  host: 127.0.0.1
+  port: 6473
+  waitForAck: false

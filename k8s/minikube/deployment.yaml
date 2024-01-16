@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zk-socket-server
+  labels:
+    app: zk-socket-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zk-socket-server
+  template:
+    metadata:
+      labels:
+        app: zk-socket-server
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: zk-socket-server
+      containers:
+        - name: zk-socket-server
+          image: zk-socket-server:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
+          volumeMounts:
+            - name: config
+              mountPath: /zk/config

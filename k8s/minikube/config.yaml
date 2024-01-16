@@ -1,0 +1,19 @@
+apiVersion: v1
+data:
+  config.yaml: |-
+    logs:
+      color: true
+      level: DEBUG
+    app:
+      startServerOnBoot: true
+      runTestClientOnBoot: false
+    server:
+      sendAck: false
+      port: 8080
+    client:
+      host: 127.0.0.1
+      port: 8080
+      waitForAck: false
+kind: ConfigMap
+metadata:
+  name: zk-socket-server
